@@ -14,10 +14,23 @@ body {
   margin: 0 auto;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.header {
+}
+
+.note-header {
+}
+
+.note-add {
+}
+
+.notes {
+}
+
+.note-actions {
+}
+
+.note-edit {
+}
+
+.note-delete {
 }
