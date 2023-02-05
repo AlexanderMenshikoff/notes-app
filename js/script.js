@@ -6,23 +6,43 @@ function createNote(title, text){
     noteEl.classList.add('note')
     noteEl.innerHTML = `
         <div class = "note-header">
-            <p>${title}</p>
-            <div class = "note-actions">
-            <button class = "note-edit"><i class="fa-thin fa-pen-to-square"></i></button>
-            <button class = "note-delete"><i class="fa-thin fa-trash"></i></button>
+            <p id = "note-title">${title}</p>
+            <textarea class = "note-title-input hidden">${title}</textarea>
+            <div>
+            <button class = "note-edit"><i class="fa-solid fa-pen"></i></button>
+            <button class = "note-delete"><i class="fa-solid fa-trash"></i></button>
             </div>
         </div>
-        <p>${text}</p>
+        <p id = "note-text">${text}</p>
+        <textarea class = "note-textarea hidden">${text}</textarea>
     `
+
     const editBtn = noteEl.querySelector('.note-edit')
     const deleteBtn = noteEl.querySelector('.note-delete')
+    const titleEl = noteEl.querySelector('#note-title')
+    const textEl = noteEl.querySelector('#note-text')
+    const titleInputEl = noteEl.querySelector('.note-title-input')
+    const textInputEl = noteEl.querySelector('.note-textarea')
 
+    
     editBtn.addEventListener('click', (e) => {
+        titleEl.classList.toggle('hidden')
+        textEl.classList.toggle('hidden')
 
+        titleInputEl.classList.toggle('hidden')
+        textInputEl.classList.toggle('hidden')
     })
 
     deleteBtn.addEventListener('click', (e) => {
         noteEl.remove()
+    })
+
+    titleInputEl.addEventListener('input', (e) =>{
+        titleEl.innerText = e.target.value
+    })
+
+    textInputEl.addEventListener('input', (e) =>{
+        textEl.innerText = e.target.value
     })
 
     return noteEl
